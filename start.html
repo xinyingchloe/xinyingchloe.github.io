@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=960, initial-scale=1" />
+
+  <title>Swipe Right Think Twice</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#120816;
+      --text:#ffe9f4;
+      --pink:#ff4fb3;
+      --pink2:#ff86c9;
+      --shadow:rgba(0,0,0,0.35);
+    }
+    *{ box-sizing:border-box; }
+
+    html, body{
+      width:960px;
+      height:540px;
+      margin:0;
+      overflow:hidden;
+      background:var(--bg);
+      font-family:"Press Start 2P", sans-serif;
+      color:var(--text);
+    }
+
+    #stage{
+      position:absolute;
+      top:0; left:0;
+      width:960px;
+      height:540px;
+      background: linear-gradient(#1b0a22, #050108);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      overflow:hidden;
+    }
+
+    .heart{
+      position:absolute;
+      bottom:-40px;
+      font-size:20px;
+      opacity:0.22;
+      animation: floatUp linear infinite;
+      pointer-events:none;
+      z-index:0;
+      filter: drop-shadow(0 6px 0 rgba(0,0,0,0.25));
+    }
+    @keyframes floatUp{
+      from{ transform: translateY(0); }
+      to{ transform: translateY(-650px); }
+    }
+
+    .panel{
+      width:760px;
+      padding:40px 36px;
+      background: rgba(0,0,0,0.45);
+      border:4px solid var(--text);
+      box-shadow:0 10px 0 var(--shadow);
+      z-index:1;
+    }
+
+    .title{
+      font-size:34px;
+      margin:0;
+      line-height:1.2;
+      letter-spacing:1px;
+    }
+
+    .tagline{
+      margin:18px 0 0;
+      font-size:12px;
+      color:var(--pink2);
+      line-height:1.6;
+    }
+
+    .hint{
+      margin:14px 0 0;
+      font-size:10px;
+      opacity:0.9;
+      line-height:1.6;
+    }
+
+    .hint span{
+      color:var(--pink);
+    }
+
+    .btnRow{
+      margin-top:26px;
+      display:flex;
+      justify-content:center;
+    }
+
+    button{
+      font-family:"Press Start 2P", sans-serif;
+      font-size:16px;
+      padding:18px 34px;
+      background: var(--pink);
+      border:4px solid var(--text);
+      cursor:pointer;
+      box-shadow:0 10px 0 var(--shadow);
+      animation: blink 1s infinite;
+    }
+    button:active{
+      transform: translateY(4px);
+      box-shadow:0 6px 0 var(--shadow);
+    }
+
+    @keyframes blink{
+      0%{ opacity:1; }
+      50%{ opacity:0.65; }
+      100%{ opacity:1; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="stage">
+
+    <div class="heart" style="left:10%; animation-duration:18s; font-size:18px;">💗</div>
+    <div class="heart" style="left:24%; animation-duration:14s; font-size:22px;">💖</div>
+    <div class="heart" style="left:42%; animation-duration:20s; font-size:16px;">💗</div>
+    <div class="heart" style="left:58%; animation-duration:15s; font-size:21px;">💞</div>
+    <div class="heart" style="left:76%; animation-duration:19s; font-size:17px;">💖</div>
+    <div class="heart" style="left:90%; animation-duration:16s; font-size:20px;">💗</div>
+
+    <div class="panel">
+      <h1 class="title">SWIPE RIGHT<br>THINK TWICE</h1>
+      <p class="tagline">LOVE AT FIRST SWIPE? THINK AGAIN.</p>
+      <p class="hint">HINT: <span>CLICK START</span> TO BEGIN.</p>
+
+      <div class="btnRow">
+        <button onclick="location.href='intro.html'">START</button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

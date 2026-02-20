@@ -1,0 +1,216 @@
+<head>
+<title>Set Up Your TNDR Profile</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#120816;
+  --text:#ffe9f4;
+  --pink:#ff4fb3;
+  --pink2:#ff86c9;
+  --shadow:rgba(0,0,0,0.35);
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:var(--bg);
+  font-family:"Press Start 2P", sans-serif;
+  color:var(--text);
+  overflow:hidden;
+}
+
+#stage{
+  position:absolute;
+  top:0;
+  left:0;
+
+  width:960px;
+  height:540px;
+
+  background: linear-gradient(#1b0a22, #050108);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:60px;
+  padding:0 60px;
+  overflow:hidden;
+}
+
+.heartBg{
+  position:absolute;
+  bottom:-40px;
+  font-size:20px;
+  opacity:0.12;
+  animation: floatUp linear infinite;
+  pointer-events:none;
+}
+.heartBg.small{ font-size:14px; opacity:0.08; }
+
+@keyframes floatUp{
+  from{ transform: translateY(0); }
+  to{ transform: translateY(-650px); }
+}
+
+.phone{
+  width:280px;
+  height:460px;
+  border:4px solid var(--text);
+  border-radius:18px;
+  background: rgba(0,0,0,0.35);
+  padding:14px;
+  box-shadow:0 14px 0 var(--shadow);
+  z-index:1;
+}
+
+.notch{
+  width:120px;
+  height:10px;
+  border:3px solid rgba(255,233,244,0.75);
+  border-radius:10px;
+  margin:2px auto 10px auto;
+}
+
+.screen{
+  height:390px;
+  border:3px solid rgba(255,233,244,0.65);
+  border-radius:12px;
+  background: linear-gradient(#1b0a22, #07010c);
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+}
+
+.avatar{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  background:#5a5a5a;
+  position:relative;
+  box-shadow:0 10px 0 var(--shadow);
+  overflow:hidden;
+}
+
+.avatar:before{
+  content:"";
+  position:absolute;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:#cfcfcf;
+  top:18px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.avatar:after{
+  content:"";
+  position:absolute;
+  width:78px;
+  height:52px;
+  border-radius:50%;
+  background:#cfcfcf;
+  bottom:-18px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.field{
+  width:100%;
+  font-size:7px;
+  border-bottom:2px dashed rgba(255,233,244,0.4);
+  padding-bottom:4px;
+}
+
+.placeholder{
+  color:rgba(255,233,244,0.45);
+  font-style:italic;
+}
+
+.panel{
+  width:360px;
+  z-index:1;
+}
+
+.panel h1{
+  font-size:16px;
+  color:var(--pink);
+  margin-bottom:18px;
+}
+
+.panel p{
+  font-size:10px;
+  color:var(--pink2);
+  margin-bottom:26px;
+}
+
+.choice{
+  display:block;
+  width:100%;
+  padding:14px 10px;
+  border:4px solid var(--text);
+  text-decoration:none;
+  color:var(--text);
+  font-size:10px;
+  margin:16px 0;
+  background:transparent;
+  box-shadow:0 8px 0 var(--shadow);
+  text-align:center;
+  transition:0.15s;
+}
+
+.choice:hover{
+  transform:translateY(-3px);
+}
+
+.note{
+  font-size:8px;
+  color:rgba(255,233,244,0.6);
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div id="stage">
+
+  <div class="heartBg small" style="left:10%;animation-duration:22s;">💗</div>
+  <div class="heartBg" style="left:25%;animation-duration:18s;">💖</div>
+  <div class="heartBg small" style="left:70%;animation-duration:20s;">💗</div>
+
+  <div class="phone">
+    <div class="notch"></div>
+
+    <div class="screen">
+      <div class="avatar"></div>
+
+      <div class="field placeholder">Add name</div>
+      <div class="field placeholder">Add school</div>
+      <div class="field placeholder">Add bio</div>
+      <div class="field placeholder">Add hobbies</div>
+      <div class="field placeholder">Add phone number</div>
+    </div>
+  </div>
+
+  <div class="panel">
+
+    <h1>SET UP YOUR TNDR PROFILE</h1>
+    <p>What will you share on your profile?</p>
+
+    <a class="choice" href="failure.html">REAL NAME + SCHOOL</a>
+    <a class="choice" href="task2.html">NICKNAME + HOBBIES</a>
+    <a class="choice" href="failure.html">PHONE NUMBER FOR MATCHES</a>
+
+    <div class="note">tap one option to continue</div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

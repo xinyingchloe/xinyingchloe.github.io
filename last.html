@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<head>
+  <meta name="viewport" content="width=960, initial-scale=1" />
+
+  <title>Thanks For Playing</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#120816;
+      --text:#ffe9f4;
+      --pink:#ff4fb3;
+      --pink2:#ff86c9;
+      --shadow:rgba(0,0,0,0.35);
+    }
+
+    *{ box-sizing:border-box; }
+
+    html, body{
+      width:960px;
+      height:540px;
+      margin:0;
+      overflow:hidden;
+      background:var(--bg);
+      font-family:"Press Start 2P", sans-serif;
+      color:var(--text);
+    }
+
+    #stage{
+      position:absolute;
+      top:0;
+      left:0;
+      width:960px;
+      height:540px;
+      background: linear-gradient(#1b0a22, #050108);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:44px;
+      text-align:center;
+      overflow:hidden;
+    }
+
+    .card{
+      width:780px;
+      border:4px solid var(--text);
+      background: rgba(0,0,0,0.35);
+      box-shadow:0 14px 0 var(--shadow);
+      padding:38px;
+      z-index:1;
+    }
+
+    h1{
+      margin:0 0 18px 0;
+      font-size:22px;
+      color:var(--pink);
+      line-height:1.2;
+    }
+
+    p{
+      margin:0 auto 22px auto;
+      max-width:660px;
+      font-size:11px;
+      line-height:1.95;
+      color:var(--pink2);
+    }
+
+    .badgeRow{
+      margin:18px 0 26px 0;
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .badge{
+      border:3px solid rgba(255,233,244,0.45);
+      background: rgba(0,0,0,0.22);
+      box-shadow:0 8px 0 var(--shadow);
+      padding:12px 14px;
+      font-size:9px;
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    .btnRow{
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 18px;
+      border:4px solid var(--text);
+      color:var(--text);
+      text-decoration:none;
+      font-size:10px;
+      box-shadow:0 10px 0 var(--shadow);
+    }
+
+    .btn:active{
+      transform: translateY(4px);
+      box-shadow:0 6px 0 var(--shadow);
+    }
+
+    .btn.alt{
+      border-color: var(--pink);
+      color: var(--pink);
+    }
+
+    .small{
+      margin-top:18px;
+      font-size:8px;
+      color:rgba(255,233,244,0.6);
+      line-height:1.75;
+    }
+
+    .heart{
+      position:absolute;
+      top:-30px;
+      font-size:14px;
+      opacity:0.75;
+      animation: fall 4.5s linear infinite;
+      z-index:0;
+      pointer-events:none;
+    }
+
+    @keyframes fall{
+      0%{ transform: translateY(0); opacity:0.0; }
+      10%{ opacity:0.8; }
+      100%{ transform: translateY(620px); opacity:0.0; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="stage">
+
+    <div class="heart" style="left:10%; animation-duration:18s; font-size:18px;">💗</div>
+    <div class="heart" style="left:24%; animation-duration:14s; font-size:22px;">💖</div>
+    <div class="heart" style="left:42%; animation-duration:20s; font-size:16px;">💗</div>
+    <div class="heart" style="left:58%; animation-duration:15s; font-size:21px;">💞</div>
+    <div class="heart" style="left:76%; animation-duration:19s; font-size:17px;">💖</div>
+    <div class="heart" style="left:90%; animation-duration:16s; font-size:20px;">💗</div>
+
+
+    <div class="card">
+      <h1>THANKS FOR PLAYING</h1>
+
+      <p>
+        Remember: if someone pressures you, asks for secrecy, or tries to isolate you,
+        stay cautious and aware.
+      </p>
+
+    
+      <div class="btnRow">
+        <a class="btn" href="start.html" onclick="localStorage.setItem('quizScore','0')">PLAY AGAIN</a>
+        <a class="btn alt" href="quiz_intro.html">RETAKE CHECK</a>
+      </div>
+
+      <div class="small">stay safe online ✦</div>
+    </div>
+
+  </div>
+</body>
+</html>

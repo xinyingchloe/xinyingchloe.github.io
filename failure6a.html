@@ -1,0 +1,209 @@
+<head>
+<title>Account Locked</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#050108;
+  --text:#ffe9f4;
+  --warn:#ff3b6b;
+  --shadow:rgba(0,0,0,0.6);
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:var(--bg);
+  font-family:"Press Start 2P", sans-serif;
+  color:var(--text);
+  overflow:hidden;
+}
+
+#stage{
+  position:absolute;
+  top:0;
+  left:0;
+  width:960px;
+  height:540px;
+  background: linear-gradient(#09010f, #020005);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:60px;
+  padding:0 60px;
+  overflow:hidden;
+}
+
+.speck{
+  position:absolute;
+  width:2px;
+  height:14px;
+  background:rgba(255,233,244,0.2);
+  bottom:-20px;
+  animation: rise linear infinite;
+}
+
+@keyframes rise{
+  from{ transform: translateY(0); opacity:0; }
+  10%{ opacity:0.4; }
+  90%{ opacity:0.25; }
+  to{ transform: translateY(-680px); opacity:0; }
+}
+
+.phone{
+  width:280px;
+  height:460px;
+  border:4px solid rgba(255,233,244,0.6);
+  border-radius:18px;
+  background: rgba(0,0,0,0.45);
+  padding:14px;
+  box-shadow:0 14px 0 var(--shadow);
+}
+
+.notch{
+  width:120px;
+  height:10px;
+  border:3px solid rgba(255,233,244,0.45);
+  border-radius:10px;
+  margin:2px auto 10px auto;
+}
+
+.screen{
+  height:390px;
+  border:3px solid rgba(255,233,244,0.35);
+  border-radius:12px;
+  background: linear-gradient(#120021, #030006);
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+}
+
+.warnIcon{
+  width:90px;
+  height:90px;
+  border:4px solid var(--warn);
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 0 var(--shadow);
+}
+
+.warnIcon::before{
+  content:"!";
+  font-size:44px;
+  color:var(--warn);
+  animation:flicker 1.2s infinite;
+}
+
+@keyframes flicker{
+  0%,100%{ opacity:1; }
+  50%{ opacity:0.5; }
+}
+
+.lockText{
+  text-align:center;
+  font-size:10px;
+}
+
+.panel{
+  width:420px;
+  background: rgba(0,0,0,0.4);
+  border:4px solid rgba(255,233,244,0.6);
+  box-shadow:0 12px 0 var(--shadow);
+  padding:26px;
+}
+
+h1{
+  margin:0 0 16px 0;
+  font-size:18px;
+  color:var(--warn);
+}
+
+.msg{
+  font-size:10px;
+  line-height:1.7;
+  margin-bottom:24px;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 16px;
+  border:4px solid var(--warn);
+  background:transparent;
+  color:var(--warn);
+  text-decoration:none;
+  font-size:10px;
+  box-shadow:0 8px 0 var(--shadow);
+  transition:0.15s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.btn:active{
+  transform:translateY(4px);
+  box-shadow:0 4px 0 var(--shadow);
+}
+</style>
+</head>
+
+<body>
+
+<div id="stage">
+
+  <div class="speck" style="left:15%; animation-duration:14s;"></div>
+  <div class="speck" style="left:35%; animation-duration:18s;"></div>
+  <div class="speck" style="left:55%; animation-duration:16s;"></div>
+  <div class="speck" style="left:75%; animation-duration:20s;"></div>
+
+  <div class="phone">
+    <div class="notch"></div>
+
+    <div class="screen">
+      <div class="warnIcon"></div>
+      <div class="lockText">ACCOUNT LOCKED</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h1>DANGEROUS MEETING</h1>
+
+    <p class="msg">
+      You agreed to meet someone you barely knew.
+      Not everyone online is who they claim to be.
+    </p>
+
+    <a class="btn" href="task6.html">TRY AGAIN</a>
+  </div>
+
+</div>
+
+<script>
+  window.addEventListener("load", () => {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = "square";
+      osc.frequency.value = 200;
+
+      gain.gain.value = 0.08;
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start();
+      osc.stop(ctx.currentTime + 0.3);
+    } catch(e){}
+  });
+</script>
+
+</body>

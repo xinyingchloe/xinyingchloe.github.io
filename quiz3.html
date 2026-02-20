@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<head>
+  <meta name="viewport" content="width=960, initial-scale=1" />
+
+  <title>Question 3</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#120816;
+      --text:#ffe9f4;
+      --pink:#ff4fb3;
+      --pink2:#ff86c9;
+      --shadow:rgba(0,0,0,0.35);
+    }
+
+    *{ box-sizing:border-box; }
+
+    html, body{
+      width:960px;
+      height:540px;
+      margin:0;
+      overflow:hidden;
+      background:var(--bg);
+      font-family:"Press Start 2P", sans-serif;
+      color:var(--text);
+    }
+
+    #stage{
+      position:absolute;
+      top:0;
+      left:0;
+      width:960px;
+      height:540px;
+      background: linear-gradient(#1b0a22,#050108);
+      padding:38px 46px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .wrap{ width:820px; }
+
+    .top{
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:20px;
+      font-size:9px;
+      color:rgba(255,233,244,0.75);
+    }
+
+    .card{
+      border:4px solid var(--text);
+      background:rgba(0,0,0,0.35);
+      box-shadow:0 14px 0 var(--shadow);
+      padding:30px;
+    }
+
+    h1{
+      margin:0 0 18px 0;
+      font-size:14px;
+      color:var(--pink);
+      line-height:1.6;
+    }
+
+    .choice{
+      width:100%;
+      padding:16px 14px;
+      margin:14px 0;
+      border:4px solid var(--text);
+      background:transparent;
+      color:var(--text);
+      font-family:inherit;
+      font-size:10px;
+      text-align:left;
+      box-shadow:0 10px 0 var(--shadow);
+      cursor:pointer;
+    }
+
+    .choice:hover{ border-color: var(--pink2); }
+
+    .choice:active{
+      transform: translateY(4px);
+      box-shadow:0 6px 0 var(--shadow);
+    }
+
+    .note{
+      margin-top:14px;
+      font-size:8px;
+      color:rgba(255,233,244,0.6);
+      line-height:1.7;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="stage">
+    <div class="wrap">
+      <div class="top">
+        <div>Q3 / 3</div>
+        <div id="scoreMini">Score: 0</div>
+      </div>
+
+      <div class="card">
+        <h1>What should you do if a stranger asks to meet you alone in a “quiet place”?</h1>
+
+        <button class="choice" onclick="answer(true,'quiz_result.html')">
+          Refuse and stop contact (block/report if needed).
+        </button>
+
+        <button class="choice" onclick="answer(false,'quiz_result.html')">
+          Go, because it’s faster to talk face-to-face.
+        </button>
+
+        <button class="choice" onclick="answer(false,'quiz_result.html')">
+          Share your live location and still go alone.
+        </button>
+
+        <div class="note">tap one option</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function answer(isCorrect,next){
+      const s = parseInt(localStorage.getItem("quizScore") || "0", 10);
+      localStorage.setItem("quizScore", String(s + (isCorrect ? 1 : 0)));
+      window.location.href = next;
+    }
+
+    function updateMini(){
+      const s = localStorage.getItem("quizScore") || "0";
+      document.getElementById("scoreMini").textContent = "Score: " + s;
+    }
+
+    updateMini();
+  </script>
+</body>
+</html>

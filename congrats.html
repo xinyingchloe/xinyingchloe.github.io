@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<head>
+  <meta name="viewport" content="width=960, initial-scale=1" />
+
+  <title>Congrats!</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#120816;
+      --text:#ffe9f4;
+      --pink:#ff4fb3;
+      --pink2:#ff86c9;
+      --shadow:rgba(0,0,0,0.35);
+    }
+
+    *{ box-sizing:border-box; }
+
+    html, body{
+      width:960px;
+      height:540px;
+      margin:0;
+      overflow:hidden;
+      background:var(--bg);
+      font-family:"Press Start 2P", sans-serif;
+      color:var(--text);
+    }
+
+    #stage{
+      position:absolute;
+      top:0;
+      left:0;
+      width:960px;
+      height:540px;
+      background: linear-gradient(#1b0a22, #050108);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:40px;
+    }
+
+    .card{
+      border:4px solid var(--text);
+      padding:40px;
+      width:700px;
+      max-width:700px;
+      box-shadow:0 14px 0 var(--shadow);
+      background: rgba(0,0,0,0.35);
+    }
+
+    h1{
+      color:var(--pink);
+      font-size:28px;
+      margin:0 0 24px 0;
+      line-height:1.2;
+    }
+
+    p{
+      font-size:12px;
+      line-height:1.8;
+      color:var(--pink2);
+      margin:0 0 34px 0;
+    }
+
+    b{
+      color:var(--text);
+      font-weight:normal;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:16px 22px;
+      border:4px solid var(--text);
+      color:var(--text);
+      text-decoration:none;
+      font-size:12px;
+      box-shadow:0 10px 0 var(--shadow);
+    }
+
+    .btn:active{
+      transform: translateY(4px);
+      box-shadow:0 6px 0 var(--shadow);
+    }
+
+    .note{
+      margin-top:18px;
+      font-size:8px;
+      color:rgba(255,233,244,0.6);
+      line-height:1.6;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="stage">
+    <div class="card">
+      <h1>YOU STAYED SAFE</h1>
+
+      <p>
+        You recognised the warning signs and
+        protected yourself from a dangerous situation.
+        <br><br>
+        Next, complete a short
+        <b>UNDERSTANDING CHECK</b>
+        to test what you learned.
+      </p>
+
+      <a class="btn" href="quiz_intro.html">START CHECK</a>
+
+      <div class="note">tap to continue</div>
+    </div>
+  </div>
+</body>
+</html>

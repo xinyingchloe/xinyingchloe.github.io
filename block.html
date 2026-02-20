@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<head>
+<meta name="viewport" content="width=960, initial-scale=1">
+
+<title>Block</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#120816;
+  --text:#ffe9f4;
+  --pink:#ff4fb3;
+  --pink2:#ff86c9;
+  --shadow:rgba(0,0,0,0.35);
+}
+
+*{ box-sizing:border-box; }
+
+html, body{
+  width:960px;
+  height:540px;
+  margin:0;
+  overflow:hidden;
+  background:var(--bg);
+  font-family:"Press Start 2P", sans-serif;
+  color:var(--text);
+}
+
+#stage{
+  position:absolute;
+  top:0;
+  left:0;
+  width:960px;
+  height:540px;
+  background: linear-gradient(#1b0a22, #050108);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.phone{
+  width:280px;
+  height:460px;
+  border:4px solid var(--text);
+  border-radius:18px;
+  background: rgba(0,0,0,0.35);
+  padding:14px;
+  box-shadow:0 14px 0 var(--shadow);
+}
+
+.notch{
+  width:120px;
+  height:10px;
+  border:3px solid rgba(255,233,244,0.75);
+  border-radius:10px;
+  margin:2px auto 10px auto;
+}
+
+.screen{
+  height:390px;
+  border:3px solid rgba(255,233,244,0.65);
+  border-radius:12px;
+  background: linear-gradient(#1b0a22, #07010c);
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+}
+
+/* CHAT */
+.chatHeader{
+  display:flex;
+  justify-content:space-between;
+  font-size:7px;
+  color:var(--pink2);
+  margin-bottom:10px;
+}
+
+.chatArea{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  gap:10px;
+  overflow:hidden;
+}
+
+.bubble{
+  max-width:88%;
+  font-size:7px;
+  line-height:1.6;
+  padding:8px;
+  border:3px solid rgba(255,233,244,0.45);
+  background: rgba(0,0,0,0.22);
+  box-shadow:0 6px 0 var(--shadow);
+}
+
+.them{ align-self:flex-start; border-color: rgba(255,134,201,0.55); }
+.me{ align-self:flex-end; opacity:0.9; }
+
+.typing{
+  align-self:flex-start;
+  border-color: rgba(255,134,201,0.35);
+  opacity:0.9;
+}
+
+.dots{
+  letter-spacing:2px;
+  animation: blink 1s steps(4,end) infinite;
+}
+
+@keyframes blink{
+  0%{ opacity:0.2; }
+  50%{ opacity:1; }
+  100%{ opacity:0.2; }
+}
+
+.blockBtn{
+  margin-top:12px;
+  padding:12px 10px;
+  text-align:center;
+  border:4px solid var(--pink);
+  color:var(--pink);
+  text-decoration:none;
+  font-size:10px;
+  box-shadow:0 8px 0 var(--shadow);
+  display:none;
+}
+
+.smallNote{
+  margin-top:10px;
+  font-size:7px;
+  color:rgba(255,233,244,0.55);
+  text-align:center;
+  display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div id="stage">
+  <div class="phone">
+    <div class="notch"></div>
+
+    <div class="screen">
+
+      <div class="chatHeader">
+        <div>Match</div>
+        <div>2:25 AM</div>
+      </div>
+
+      <div class="chatArea" id="chatArea">
+
+        <div class="bubble them">
+          come out now. just you and me. i know a quiet place.
+        </div>
+
+        <div class="bubble me">
+          no. i'm not meeting you. this feels unsafe.
+        </div>
+
+        <div class="bubble them">
+          wow. after everything? you're really overreacting.
+        </div>
+
+        <div class="bubble me">
+          i'm blocking you now.
+        </div>
+
+        <div class="bubble typing" id="typingBubble">
+          typing<span class="dots">...</span>
+        </div>
+
+      </div>
+
+      <a class="blockBtn" id="blockBtn" href="congrats.html">
+        BLOCK USER
+      </a>
+
+      <div class="smallNote" id="note">
+        tap to finish
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+setTimeout(() => {
+  const typing = document.getElementById("typingBubble");
+  if (typing) typing.remove();
+
+  document.getElementById("blockBtn").style.display = "block";
+  document.getElementById("note").style.display = "block";
+}, 10000);
+</script>
+
+</body>
+</html>

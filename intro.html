@@ -1,0 +1,332 @@
+<head>
+  <title>Welcome</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#120816;
+      --text:#ffe9f4;
+      --pink:#ff4fb3;
+      --pink2:#ff86c9;
+      --shadow:rgba(0,0,0,0.35);
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      background:var(--bg);
+      font-family:"Press Start 2P", sans-serif;
+      color:var(--text);
+      overflow:hidden;
+    }
+
+    #stage{
+      position:absolute;
+      top:0;
+      left:0;
+
+      width:960px;
+      height:540px;
+
+      background: linear-gradient(#1b0a22, #050108);
+      display:flex;
+      align-items:center;
+      justify-content:center; 
+      gap:36px;                
+      padding:0 50px;
+      overflow:hidden;
+    }
+
+    .heartBg{
+      position:absolute;
+      bottom:-40px;
+      font-size:20px;
+      opacity:0.12;
+      animation: floatUp linear infinite;
+      pointer-events:none;
+    }
+    .heartBg.small{ font-size:14px; opacity:0.08; }
+
+    @keyframes floatUp{
+      from{ transform: translateY(0); }
+      to{ transform: translateY(-650px); }
+    }
+
+    #goal{ width:340px; z-index:2; }
+
+    #goal .big{
+      font-size:22px;
+      line-height:1.8;
+      color:var(--pink);
+      margin:0;
+      text-shadow:
+        0 0 6px rgba(255,79,179,0.55),
+        0 3px 0 rgba(0,0,0,0.6);
+    }
+
+    .goalTitle{
+      color:var(--text);
+      font-size:18px;
+    }
+
+    .phone{
+      width:280px;
+      height:460px;
+      border:4px solid var(--text);
+      border-radius:18px;
+      background: rgba(0,0,0,0.35);
+      padding:14px;
+      box-shadow:0 14px 0 var(--shadow);
+    }
+
+    .notch{
+      width:120px;
+      height:10px;
+      border:3px solid rgba(255,233,244,0.75);
+      border-radius:10px;
+      margin:2px auto 10px auto;
+      opacity:0.9;
+    }
+
+    .screen{
+      height:390px;
+      border:3px solid rgba(255,233,244,0.65);
+      border-radius:12px;
+      background: linear-gradient(#1b0a22, #07010c);
+      padding:12px 14px;
+      position:relative;
+      overflow:hidden; 
+    }
+
+    .topBar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-size:10px;
+      line-height:1;
+      margin-bottom:10px;
+    }
+
+    .rightStatus{
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+
+    .signal{
+      display:flex;
+      gap:2px;
+      align-items:flex-end;
+      height:10px;
+    }
+    .signal span{
+      display:block;
+      width:2px;
+      background:var(--text);
+      opacity:0.95;
+    }
+    .signal span:nth-child(1){ height:4px; }
+    .signal span:nth-child(2){ height:7px; }
+    .signal span:nth-child(3){ height:10px; }
+
+    .battery{
+      width:20px;
+      height:10px;
+      border:2px solid var(--text);
+      position:relative;
+      padding:1px;
+      display:flex;
+      align-items:center;
+    }
+    .battery:after{
+      content:"";
+      position:absolute;
+      right:-4px;
+      top:2px;
+      width:2px;
+      height:6px;
+      background:var(--text);
+      opacity:0.95;
+    }
+
+    .batteryFill{
+      height:100%;
+      display:flex;
+      gap:1px;
+    }
+    .batteryFill span{
+      width:3px;
+      height:100%;
+      background:var(--pink);
+    }
+
+    .apps{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:8px;
+      text-align:center;
+    }
+
+    .appBtn{
+      width:60px;
+      height:60px;
+      margin:auto;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:transparent;
+      text-decoration:none;
+    }
+
+    .icon{
+      width:54px;
+      height:54px;
+      border-radius:14px;
+      box-shadow:0 8px 0 var(--shadow);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:18px;
+    }
+
+    .iconTndr{
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      animation:pulse 1.4s infinite;
+    }
+
+    @keyframes pulse{
+      0%,100%{ transform: translateY(0); }
+      50%{ transform: translateY(-3px); }
+    }
+
+    .pHeart{
+      display:grid;
+      grid-template-columns: repeat(8, 2px);
+      grid-template-rows: repeat(7, 2px);
+      gap:1px;
+    }
+    .pHeart i{
+      width:2px;
+      height:2px;
+      background:transparent;
+    }
+    .pHeart i.on{ background:var(--bg); }
+
+    .iconCamera{ background:#888; }
+    .iconNotes{ background:#ffd66b; }
+    .iconMsg{ background:#5dbbff; }
+
+    .label{
+      margin-top:4px;
+      font-size:7px;
+      color:var(--pink2);
+    }
+
+    .hint{
+      position:absolute;
+      bottom:6px;
+      left:12px;
+      right:12px;
+      font-size:8px;
+      text-align:center;
+      color:var(--pink2);
+      animation:hintBlink 2s infinite;
+    }
+
+    @keyframes hintBlink{
+      0%,70%{opacity:1;}
+      85%{opacity:0.4;}
+      100%{opacity:1;}
+    }
+  </style>
+</head>
+
+<body>
+<div id="stage">
+
+  <div class="heartBg small" style="left:10%;animation-duration:22s;">💗</div>
+  <div class="heartBg" style="left:25%;animation-duration:18s;">💖</div>
+  <div class="heartBg small" style="left:70%;animation-duration:20s;">💗</div>
+
+  <div id="goal">
+    <p class="big">
+      <span class="goalTitle">YOUR GOAL</span><br>
+      STAY SAFE WHILE<br>
+      YOU FIND LOVE
+    </p>
+  </div>
+
+  <div class="phone">
+    <div class="notch"></div>
+
+    <div class="screen">
+      <div class="topBar">
+        <div>2:00 AM</div>
+
+        <div class="rightStatus">
+          <div class="signal"><span></span><span></span><span></span></div>
+
+          <div class="wifi">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+          </div>
+
+          <div class="battery">
+            <div class="batteryFill">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="apps">
+        <div>
+          <a class="appBtn" href="profile.html">
+            <div class="icon iconTndr">
+              <div class="pHeart" aria-hidden="true">
+                <i></i><i class="on"></i><i class="on"></i><i></i><i></i><i class="on"></i><i class="on"></i><i></i>
+                <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+                <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+                <i></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i>
+                <i></i><i></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i>
+                <i></i><i></i><i></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i>
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+              </div>
+            </div>
+          </a>
+          <div class="label">Tndr</div>
+        </div>
+
+        <div>
+          <div class="appBtn">
+            <div class="icon iconCamera">📷</div>
+          </div>
+          <div class="label">Camera</div>
+        </div>
+
+        <div>
+          <div class="appBtn">
+            <div class="icon iconNotes">📝</div>
+          </div>
+          <div class="label">Notes</div>
+        </div>
+
+        <div>
+          <div class="appBtn">
+            <div class="icon iconMsg">💬</div>
+          </div>
+          <div class="label">Messages</div>
+        </div>
+      </div>
+
+      <div class="hint">HINT: CLICK APP TO START</div>
+    </div>
+  </div>
+
+</div>
+</body>
+

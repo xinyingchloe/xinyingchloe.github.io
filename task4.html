@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>TNDR Chat</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#120816;
+  --text:#ffe9f4;
+  --pink:#ff4fb3;
+  --pink2:#ff86c9;
+  --shadow:rgba(0,0,0,0.35);
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:var(--bg);
+  font-family:"Press Start 2P", sans-serif;
+  color:var(--text);
+  overflow:hidden;
+}
+
+#stage{
+  position:absolute;
+  top:0;
+  left:0;
+  width:960px;
+  height:540px;
+  background: linear-gradient(#1b0a22, #050108);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:60px;
+  padding:0 60px;
+}
+
+.phone{
+  width:280px;
+  height:460px;
+  border:4px solid var(--text);
+  border-radius:18px;
+  background: rgba(0,0,0,0.35);
+  padding:14px;
+  box-shadow:0 14px 0 var(--shadow);
+}
+
+.notch{
+  width:120px;
+  height:10px;
+  border:3px solid rgba(255,233,244,0.75);
+  border-radius:10px;
+  margin:2px auto 10px auto;
+}
+
+.screen{
+  height:390px;
+  border:3px solid rgba(255,233,244,0.65);
+  border-radius:12px;
+  background: linear-gradient(#1b0a22, #07010c);
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+}
+
+.chatHeader{
+  display:flex;
+  justify-content:space-between;
+  font-size:7px;
+  color:var(--pink2);
+  margin-bottom:10px;
+}
+
+.chatArea{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  gap:10px;
+}
+
+.bubble{
+  max-width:88%;
+  font-size:7px;
+  line-height:1.6;
+  padding:8px;
+  border:3px solid rgba(255,233,244,0.45);
+  background: rgba(0,0,0,0.22);
+  box-shadow:0 6px 0 var(--shadow);
+}
+
+.them{ align-self:flex-start; border-color: rgba(255,134,201,0.55); }
+.me{ align-self:flex-end; opacity:0.9; }
+
+.inputBar{
+  border-top:2px dashed rgba(255,233,244,0.25);
+  padding-top:10px;
+}
+
+.inputFake{
+  border:3px solid rgba(255,233,244,0.35);
+  border-radius:10px;
+  padding:8px;
+  font-size:6px;
+  color:rgba(255,233,244,0.45);
+}
+
+.panel{
+  width:360px;
+}
+
+.panel h1{
+  font-size:16px;
+  color:var(--pink);
+  margin-bottom:18px;
+}
+
+.panel p{
+  font-size:10px;
+  color:var(--pink2);
+  margin-bottom:26px;
+  line-height:1.7;
+}
+
+.choice{
+  display:block;
+  width:100%;
+  padding:14px 10px;
+  border:4px solid var(--text);
+  text-decoration:none;
+  color:var(--text);
+  font-size:10px;
+  margin:16px 0;
+  background:transparent;
+  box-shadow:0 8px 0 var(--shadow);
+  text-align:center;
+}
+
+.note{
+  margin-top:10px;
+  font-size:8px;
+  color:rgba(255,233,244,0.6);
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+<div id="stage">
+
+  <div class="phone">
+    <div class="notch"></div>
+
+    <div class="screen">
+
+      <div class="chatHeader">
+        <div>Match</div>
+        <div>2:12 AM</div>
+      </div>
+
+      <div class="chatArea">
+
+        <div class="bubble me">
+          i'm not comfortable with sharing my photo,
+          how about we get to know each other first?
+        </div>
+
+        <div class="bubble them">
+          if you can’t trust me, maybe this won't work. it's just a photo!<br>
+        </div>
+
+      </div>
+
+      <div class="inputBar">
+        <div class="inputFake">Type a message...</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="panel">
+
+    <h1>He starts talking about trust.</h1>
+    <p>What would you do?</p>
+
+    <a class="choice" href="failure4.html">APOLOGISE AND AGREE</a>
+    <a class="choice" href="task5.html">STAND YOUR GROUND</a>
+    <a class="choice" href="failure4.html">SHARE MORE INFO TO PROVE TRUST</a>
+
+    <div class="note">tap one option to continue</div>
+
+  </div>
+
+</div>
+</body>
+</html>

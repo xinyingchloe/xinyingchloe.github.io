@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<head>
+<meta name="viewport" content="width=960, initial-scale=1">
+
+<title>Your Results</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#120816;
+  --text:#ffe9f4;
+  --pink:#ff4fb3;
+  --pink2:#ff86c9;
+  --shadow:rgba(0,0,0,0.35);
+}
+
+*{ box-sizing:border-box; }
+
+html, body{
+  width:960px;
+  height:540px;
+  margin:0;
+  overflow:hidden;
+  background:var(--bg);
+  font-family:"Press Start 2P", sans-serif;
+  color:var(--text);
+}
+
+#stage{
+  position:absolute;
+  top:0;
+  left:0;
+  width:960px;
+  height:540px;
+  background: linear-gradient(#1b0a22, #050108);
+  padding:44px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.card{
+  width:760px;
+  border:4px solid var(--text);
+  background: rgba(0,0,0,0.35);
+  box-shadow:0 14px 0 var(--shadow);
+  padding:36px;
+}
+
+h1{
+  margin:0 0 16px 0;
+  font-size:22px;
+  color:var(--pink);
+}
+
+.big{
+  font-size:16px;
+  color:var(--text);
+  line-height:1.8;
+  margin:10px 0 22px 0;
+}
+
+p{
+  margin:0 0 26px 0;
+  font-size:11px;
+  line-height:1.9;
+  color:var(--pink2);
+}
+
+.btnRow{
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 18px;
+  border:4px solid var(--text);
+  color:var(--text);
+  text-decoration:none;
+  font-size:10px;
+  box-shadow:0 10px 0 var(--shadow);
+}
+
+.btn:active{
+  transform: translateY(4px);
+  box-shadow:0 6px 0 var(--shadow);
+}
+
+.btn.alt{
+  border-color: var(--pink);
+  color: var(--pink);
+}
+
+.small{
+  margin-top:18px;
+  font-size:8px;
+  color:rgba(255,233,244,0.6);
+  line-height:1.7;
+}
+</style>
+</head>
+
+<body>
+
+<div id="stage">
+  <div class="card">
+
+    <h1>RESULTS</h1>
+
+    <div class="big" id="scoreText">Score: -- / --</div>
+
+    <p id="msg">Nice work.</p>
+
+    <div class="btnRow">
+      <a class="btn" href="quiz_intro.html"
+         onclick="localStorage.setItem('quizScore','0')">
+         RETRY
+      </a>
+
+      <a class="btn alt" href="last.html">
+         FINISH
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const score = parseInt(localStorage.getItem("quizScore") || "0", 10);
+const total = parseInt(localStorage.getItem("quizTotal") || "3", 10);
+
+document.getElementById("scoreText").textContent =
+  "Score: " + score + " / " + total;
+
+let msg = "";
+if(score === 3){
+  msg = "Perfect! You nailed all the safety choices.";
+}else if(score === 2){
+  msg = "Good job! You understand most of it, just review one area.";
+}else if(score === 1){
+  msg = "You should revisit the red flags and safe actions.";
+}else{
+  msg = "Let’s retry.";
+}
+document.getElementById("msg").textContent = msg;
+</script>
+
+</body>
+</html>
